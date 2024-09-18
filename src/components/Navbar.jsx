@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../resource/TWCPL-Logo.webp';
-import { IoReorderThreeOutline } from "react-icons/io5";
+import { IoReorderThreeOutline } from 'react-icons/io5';
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,30 +9,42 @@ function Navbar() {
   return (
     <div className="h-[5.5rem] sticky top-0 z-30 w-full shadow-lg bg-white">
       <div className="flex justify-between items-center max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Left Side: Logo and Company Name */}
         <div className="flex items-center space-x-4">
-          {/* Left side: Logo */}
-          <div className="w-[80px] h-[60px]">
-            <img src={logo} alt="Logo" className="h-full w-full object-cover" />
+          {/* Logo */}
+          <div className="w-[60px] sm:w-[80px] h-[60px] flex-shrink-0">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-full w-full object-contain"  // Ensure the image is not cut off
+            />
           </div>
 
-          {/* Right side: Company Text */}
-          <div className="flex flex-col justify-between">
-            <div className="font-bold text-lg sm:text-xl">
-              TWI Group Of Companies
-            </div>
+          {/* Company Name */}
+          <div className="font-bold text-lg sm:text-xl">
+            TWI Group Of Companies
           </div>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex font-inter gap-6 lg:gap-10 text-lg text-red items-center">
-          <Link to="/" className="hover:border-b-2 hover:border-[#ecf662]">Home</Link>
-          <Link to="/about" className="hover:border-b-2 hover:border-[#ecf662]">About</Link>
-          <Link to="/contact" className="hover:border-b-2 hover:border-[#ecf662]">Contact</Link>
+          <Link to="/" className="hover:border-b-2 hover:border-[#ecf662]">
+            Home
+          </Link>
+          <Link to="/about" className="hover:border-b-2 hover:border-[#ecf662]">
+            About
+          </Link>
+          <Link to="/contact" className="hover:border-b-2 hover:border-[#ecf662]">
+            Contact
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="text-blue-700">
+          <button
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-blue-700"
+          >
             <IoReorderThreeOutline size={30} />
           </button>
         </div>
@@ -41,9 +53,27 @@ function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-blue-800 text-white flex flex-col items-center py-4">
-          <Link to="/" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link to="/about" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link to="/contact" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <Link
+            to="/"
+            className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
       )}
     </div>
@@ -51,6 +81,143 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import logo from '../resource/TWCPL-Logo.webp';
+// import { IoReorderThreeOutline } from 'react-icons/io5';
+
+// function Navbar() {
+//   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+//   return (
+//     <div className="h-[5.5rem] sticky top-0 z-30 w-full shadow-lg bg-white">
+//       <div className="flex justify-between items-center max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+//         {/* Left Side: Logo and Company Name */}
+//         <div className="flex items-center space-x-4">
+//           {/* Logo */}
+//           <div className="w-[60px] sm:w-[80px] h-[60px]">
+//             <img src={logo} alt="Logo" className="h-full w-full object-cover" />
+//           </div>
+//           {/* Company Name */}
+//           <div className="font-bold text-lg sm:text-xl">
+//             TWI Group Of Companies
+//           </div>
+//         </div>
+
+//         {/* Desktop Links */}
+//         <div className="hidden md:flex font-inter gap-6 lg:gap-10 text-lg text-red items-center">
+//           <Link to="/" className="hover:border-b-2 hover:border-[#ecf662]">
+//             Home
+//           </Link>
+//           <Link to="/about" className="hover:border-b-2 hover:border-[#ecf662]">
+//             About
+//           </Link>
+//           <Link to="/contact" className="hover:border-b-2 hover:border-[#ecf662]">
+//             Contact
+//           </Link>
+//         </div>
+
+//         {/* Mobile Menu Toggle */}
+//         <div className="md:hidden">
+//           <button
+//             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+//             className="text-blue-700"
+//           >
+//             <IoReorderThreeOutline size={30} />
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {isMobileMenuOpen && (
+//         <div className="md:hidden bg-blue-800 text-white flex flex-col items-center py-4">
+//           <Link
+//             to="/"
+//             className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+//             onClick={() => setMobileMenuOpen(false)}
+//           >
+//             Home
+//           </Link>
+//           <Link
+//             to="/about"
+//             className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+//             onClick={() => setMobileMenuOpen(false)}
+//           >
+//             About
+//           </Link>
+//           <Link
+//             to="/contact"
+//             className="py-2 hover:border-b-2 hover:border-[#ecf662]"
+//             onClick={() => setMobileMenuOpen(false)}
+//           >
+//             Contact
+//           </Link>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Navbar;
+
+
+
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import logo from '../resource/TWCPL-Logo.webp';
+// import { IoReorderThreeOutline } from "react-icons/io5";
+
+// function Navbar() {
+//   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+//   return (
+//     <div className="h-[5.5rem] sticky top-0 z-30 w-full shadow-lg bg-white">
+//       <div className="flex justify-between items-center max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex items-center space-x-4">
+//           {/* Left side: Logo */}
+//           <div className="w-[80px] h-[60px]">
+//             <img src={logo} alt="Logo" className="h-full w-full object-cover" />
+//           </div>
+
+//           {/* Right side: Company Text */}
+//           <div className="flex flex-col justify-between">
+//             <div className="font-bold text-lg sm:text-xl">
+//               TWI Group Of Companies
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Desktop Links */}
+//         <div className="hidden md:flex font-inter gap-6 lg:gap-10 text-lg text-red items-center">
+//           <Link to="/" className="hover:border-b-2 hover:border-[#ecf662]">Home</Link>
+//           <Link to="/about" className="hover:border-b-2 hover:border-[#ecf662]">About</Link>
+//           <Link to="/contact" className="hover:border-b-2 hover:border-[#ecf662]">Contact</Link>
+//         </div>
+
+//         {/* Mobile Menu Toggle */}
+//         <div className="md:hidden">
+//           <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="text-blue-700">
+//             <IoReorderThreeOutline size={30} />
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu */}
+//       {isMobileMenuOpen && (
+//         <div className="md:hidden bg-blue-800 text-white flex flex-col items-center py-4">
+//           <Link to="/" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+//           <Link to="/about" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>About</Link>
+//           <Link to="/contact" className="py-2 hover:border-b-2 hover:border-[#ecf662]" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Navbar;
 
 
 // import React, { useState } from 'react';
